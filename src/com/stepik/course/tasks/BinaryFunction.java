@@ -1,4 +1,4 @@
-package com.stepik.course.lesson2;
+package com.stepik.course.tasks;
 
 @FunctionalInterface
 public interface BinaryFunction<U, R, T> {
