@@ -1,6 +1,9 @@
 package com.stepik.course.tasks;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.function.IntPredicate;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class TasksHandling {
@@ -27,5 +30,14 @@ public class TasksHandling {
             System.out.println(task.getNumber());
         }
     }
+
+    public static IntPredicate conjunctAll(List<IntPredicate> predicates) {
+        return predicates.stream().reduce(IntPredicate::and).orElse(value -> true);
+    }
+
+    public static <T> Predicate<T> xor(Predicate<T> predicate1, Predicate<T> predicate2) {
+        return predicate1.or(predicate2).and(((predicate1.and(predicate2)).negate()));
+    }
+
 
 }
