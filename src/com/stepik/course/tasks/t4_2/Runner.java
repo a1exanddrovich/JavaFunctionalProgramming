@@ -22,6 +22,10 @@ public class Runner {
         laptops.sort(comparatorByNumberOfCores);
         laptops.forEach(System.out::println);
 
+        laptops.sort(Comparator.comparing(Laptop::getNumberOfCores, Comparator.reverseOrder()).thenComparingDouble(Laptop::getDisplaySize));
+
+        laptops.forEach(System.out::println);
+
     }
 
 }
