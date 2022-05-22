@@ -40,8 +40,8 @@ public class Runner {
         kevinPhoneNumbers.add(new PhoneNumber(PhoneNumberType.WORK, "1231"));
         phoneBook.addNewPhoneNumbers("Kevin", kevinPhoneNumbers);
 
-        phoneBook.addNewPhoneNumbers("Clara", List.of(new PhoneNumber(PhoneNumberType.MOBILE, "23424279")));
-        phoneBook.addNewPhoneNumbers("Paul", List.of(new PhoneNumber(PhoneNumberType.WORK, "56756335")));
+//        phoneBook.addNewPhoneNumbers("Clara", List.of(new PhoneNumber(PhoneNumberType.MOBILE, "23424279")));
+//        phoneBook.addNewPhoneNumbers("Paul", List.of(new PhoneNumber(PhoneNumberType.WORK, "56756335")));
 
         phoneBook.printPhoneBook();
 
