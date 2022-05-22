@@ -1,6 +1,8 @@
 package com.stepik.course.tasks.t4_1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Runner {
@@ -26,6 +28,23 @@ public class Runner {
         companyToNumberOfEmployeesMap.computeIfPresent("BestDevStudio", (company, amountOfEmployees) -> amountOfEmployees += 200);
 
         printMap(companyToNumberOfEmployeesMap);
+
+
+        PhoneBook phoneBook = new PhoneBook();
+
+        List<PhoneNumber> claraPhoneNumbers = new ArrayList<>();
+        claraPhoneNumbers.add(new PhoneNumber(PhoneNumberType.HOME, "723324324"));
+        phoneBook.addNewPhoneNumbers("Clara", claraPhoneNumbers);
+
+        List<PhoneNumber> kevinPhoneNumbers = new ArrayList<>();
+        kevinPhoneNumbers.add(new PhoneNumber(PhoneNumberType.WORK, "1231"));
+        phoneBook.addNewPhoneNumbers("Kevin", kevinPhoneNumbers);
+
+        phoneBook.addNewPhoneNumbers("Clara", List.of(new PhoneNumber(PhoneNumberType.MOBILE, "23424279")));
+        phoneBook.addNewPhoneNumbers("Paul", List.of(new PhoneNumber(PhoneNumberType.WORK, "56756335")));
+
+        phoneBook.printPhoneBook();
+
 
     }
 
