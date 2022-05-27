@@ -1,6 +1,9 @@
 package com.stepik.course.tasks.trymonad;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Failure<T> implements Try<T> {
 
@@ -23,6 +26,57 @@ public class Failure<T> implements Try<T> {
     @Override
     public Optional<T> toOptional() {
         return Optional.empty();
+    }
+
+    @Override
+    public T getOrElse(T defaultValue) {
+        return defaultValue;
+    }
+
+    @Override
+    public T getOrElseSupply(Supplier<? extends T> supplier) {
+        return supplier.get();
+    }
+
+    @Override
+    public <X extends Throwable> T getOrElseThrow(Supplier<? extends X> exceptionSupplier) throws X {
+        throw exceptionSupplier.get();
+    }
+
+    @Override
+    public <E extends Throwable> Try<T> onSuccess(ThrowableConsumer<T, E> action) throws E {
+        return this;
+    }
+
+    @Override
+    public <E extends Throwable> Try<T> onFailure(ThrowableConsumer<Throwable, E> action) throws E {
+        action.accept(this.e);
+        return this;
+    }
+
+    @Override
+    public Try<T> filter(Predicate<T> predicate) {
+        return this;
+    }
+
+    @Override
+    public <U> Try<U> map(ThrowableFunction<? super T, ? extends U> function) {
+        return null;
+    }
+
+    @Override
+    public <U> Try<U> flatMap(ThrowableFunction<? super T, Try<U>> function) {
+        return null;
+    }
+
+    @Override
+    public Try<T> recover(ThrowableFunction<? super Throwable, T> function) {
+        return null;
+    }
+
+    @Override
+    public Try<T> recoverWith(ThrowableFunction<? super Throwable, Try<T>> function) {
+        return null;
     }
 
     @Override
