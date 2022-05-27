@@ -61,22 +61,30 @@ public class Failure<T> implements Try<T> {
 
     @Override
     public <U> Try<U> map(ThrowableFunction<? super T, ? extends U> function) {
-        return null;
+        return new Failure<>(e);
     }
 
     @Override
     public <U> Try<U> flatMap(ThrowableFunction<? super T, Try<U>> function) {
-        return null;
+        return new Failure<>(e);
     }
 
     @Override
     public Try<T> recover(ThrowableFunction<? super Throwable, T> function) {
-        return null;
+        try {
+            return new Success<>(function.apply(e));
+        } catch (Throwable ex) {
+            return new Failure<>(ex);
+        }
     }
 
     @Override
     public Try<T> recoverWith(ThrowableFunction<? super Throwable, Try<T>> function) {
-        return null;
+        try {
+            return new Success<>(function.apply(e).get());
+        } catch (Throwable ex) {
+            return new Failure<>(ex);
+        }
     }
 
     @Override
