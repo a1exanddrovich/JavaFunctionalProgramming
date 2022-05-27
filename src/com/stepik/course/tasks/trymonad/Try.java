@@ -1,4 +1,4 @@
-package com.stepik.course.tasks.t7_2;
+package com.stepik.course.tasks.trymonad;
 
 import java.util.Optional;
 
@@ -12,7 +12,12 @@ public interface Try<T> {
      * Executes the given operation and returns the result wrapped in a Success or Failure
      */
     static <T> Try<T> of(ThrowableOperation<T> operation) {
-
+        try {
+            T value = operation.execute();
+            return new Success<>(value);
+        } catch (Throwable e) {
+            return new Failure<>(e);
+        }
     }
 
     /**

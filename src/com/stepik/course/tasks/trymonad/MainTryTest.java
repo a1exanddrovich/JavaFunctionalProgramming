@@ -1,4 +1,4 @@
-package com.stepik.course.tasks.t7_2;
+package com.stepik.course.tasks.trymonad;
 
 public class MainTryTest {
 
