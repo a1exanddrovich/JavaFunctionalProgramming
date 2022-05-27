@@ -1,4 +1,4 @@
-package com.stepik.course.tasks.t7_2;
+package com.stepik.course.tasks.trymonad;
 
 import java.util.Optional;
 
@@ -15,22 +15,22 @@ public class Success<T> implements Try<T> {
 
     @Override
     public T get() {
-        return value;
+        return this.value;
     }
 
     @Override
     public T getUnchecked() {
-        // write your code here
+        return this.value;
     }
 
     @Override
     public Optional<T> toOptional() {
-        // write your code here
+        return Optional.of(this.value);
     }
 
     @Override
     public boolean isSuccess() {
-        // write your code here
+        return true;
     }
 
     @Override
