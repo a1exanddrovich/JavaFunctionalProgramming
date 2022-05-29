@@ -39,7 +39,6 @@ public class ChainOfResponsibilityDemo {
      */
 
     //<request><transaction>Functional programming</transaction><digest>CpQDwJPMyHN+uqjXXPxKRQ==</digest></request>
-    //<transaction><request>Functional programming</request><digest>e/vAQHzTXbY8jsX8xSJGkg==</digest></transaction>
     public static RequestHandler commonRequestHandler = wrapInRequestTag.andThenHandle(createDigest.andThenHandle(wrapInTransactionTag));
 
 }
