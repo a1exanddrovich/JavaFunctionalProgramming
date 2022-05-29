@@ -1,4 +1,4 @@
-package com.stepik.course.tasks;
+package com.stepik.course.tasks.t2_X;
 
 import java.util.List;
 import java.util.stream.Collectors;
